@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.report-box {
+    text-align: left;
+    background: #111;
+    color: #0f0;
+    padding: 15px;
+    overflow-x: auto;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+}

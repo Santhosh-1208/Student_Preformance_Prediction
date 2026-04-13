@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Model Results</h1>
+
+    {% if report %}
+    <pre class="report-box">{{ report }}</pre>
+    {% endif %}
+
+    <h2>📈 Visualizations</h2>
+    <img src="{{ url_for('static', filename='confusion_matrix.png') }}" width="400">
+    <img src="{{ url_for('static', filename='feature_importance.png') }}" width="400">
+    <img src="{{ url_for('static', filename='shap_summary.png') }}" width="400">
+
+    <h2>🎯 Predict New Student</h2>
+    <form action="/predict" method="post">
+        <input type="number" name="attendance" placeholder="Attendance %" required>
+        <input type="number" step="0.1" name="study_hours" placeholder="Study Hours" required>
+        <input type="number" name="internal_marks" placeholder="Internal Marks" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+
+    <br>
+    <a href="/">⬅ Upload Another CSV</a>
+
+</div>
+
+</body>
+</html>
